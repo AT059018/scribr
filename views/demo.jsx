@@ -213,7 +213,7 @@ export default React.createClass({
   },
 
   handleFormattedMessage(msg) {
-    const endpoint = 'https://sdfgqertedssdf.mybluemix.net/testing';
+    const endpoint = 'http://127.0.0.1:8080/api/add.json';
     const res = this.getFinalAndLatestInterimResult();
     if(res && res.length > 0) {
       const results = res[res.length-1].results;
@@ -231,7 +231,11 @@ export default React.createClass({
             const speaker = results[i].speaker
             //console.log(speaker,transcript);
             fetch(endpoint, {
-              method: 'post',
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+              },
               body: JSON.stringify({"transcript":transcript,"speaker":speaker})
             });
             this.lastLen++;
@@ -243,8 +247,12 @@ export default React.createClass({
           if(transcript.indexOf(".")!=-1) {
             //console.log(transcript);
             fetch(endpoint, {
-              method: 'post',
-              body: JSON.stringify({"transcript":transcript}) //
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({"transcript":transcript})
             });
           }
       }
