@@ -249,26 +249,6 @@ export default React.createClass({
           }
       }
 
-      /*
-
-      if(this.lastLen < results.length) {
-        for(var i=0;i<results.length-this.lastLen;i++) {
-          fetch('https://sdfgqertedssdf.mybluemix.net/testing', {
-            method: 'post',
-            body: JSON.stringify({"results":results[i]}) //
-          });
-        }
-      }*/
-
-
-      /*
-      const transcript = results[0].alternatives[0].transcript;
-      if(transcript.indexOf(".")!=-1) {
-        fetch('https://sdfgqertedssdf.mybluemix.net/testing', {
-          method: 'post',
-          body: JSON.stringify({"transcript":transcript,"speaker":(result.speaker!=undefined)?result.speaker:0}) //
-        });
-      }*/
     }
     this.setState({formattedMessages: this.state.formattedMessages.concat(msg)});
   },
